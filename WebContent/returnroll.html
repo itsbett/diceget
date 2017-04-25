@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Gonna get those rolls</title>
+<script src="jquery-3.2.1.js"></script>
+<script>
+	$(document).ready(function() {
+		$("button").click(function() {
+			$("#div1").text("Hello world!");
+			$.ajax({url: "http://localhost:8080/api/dice?roll=2d6", success: function(result){
+				alter("good");
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				alert("fuck");
+			}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="div1">
+		<h2>god i wish that were</h2>
+	</div>
+	<button type="button" class="roll">Gimme the roll</button>
+</body>
+</html>
